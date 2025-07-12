@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repositories Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #24292e;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 200px;
+        }
+        .stat-card h3 {
+            margin-top: 0;
+            color: #586069;
+        }
+        .stat-card .value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #0366d6;
+        }
+        .chart-container {
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .repos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .repo-card {
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .repo-card:hover {
+            transform: translateY(-5px);
+        }
+        .repo-card h3 {
+            margin-top: 0;
+            color: #0366d6;
+        }
+        .repo-card .description {
+            color: #586069;
+            margin: 10px 0;
+        }
+        .repo-card .ai-decision {
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .category-python {
+            background-color: #e6f3ff;
+            color: #0366d6;
+        }
+        .category-portfolio {
+            background-color: #fff0e6;
+            color: #d65306;
+        }
+        .category-javascript {
+            background-color: #fffae6;
+            color: #d6a206;
+        }
+        .category-blog {
+            background-color: #e6ffe6;
+            color: #06d606;
+        }
+        .category-api {
+            background-color: #f0e6ff;
+            color: #7d06d6;
+        }
+        .category-explore {
+            background-color: #e6f9ff;
+            color: #06a2d6;
+        }
+        .category-missing {
+            background-color: #f0f0f0;
+            color: #666;
+        }
+        .filter-controls {
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .filter-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .active-filter {
+            font-weight: bold;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>GitHub Repositories Dashboard</h1>
+            <p>Overview of all repositories with AI recommendations</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>Total Repositories</h3>
+                <div class="value" id="total-repos">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Python Projects</h3>
+                <div class="value" id="python-repos">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Portfolio Projects</h3>
+                <div class="value" id="portfolio-repos">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Missing Descriptions</h3>
+                <div class="value" id="missing-desc-repos">0</div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="categoryChart"></canvas>
+        </div>
+
+        <div class="filter-controls">
+            <button class="filter-btn category-python active-filter" data-category="python">Python</button>
+            <button class="filter-btn category-portfolio" data-category="portfolio">Portfolio</button>
+            <button class="filter-btn category-javascript" data-category="javascript">JavaScript</button>
+            <button class="filter-btn category-blog" data-category="blog">Blog</button>
+            <button class="filter-btn category-api" data-category="api">API</button>
+            <button class="filter-btn category-explore" data-category="explore">Explore</button>
+            <button class="filter-btn category-missing" data-category="missing">Missing Desc</button>
+            <button class="filter-btn" data-category="all">Show All</button>
+        </div>
+
+        <div class="repos-container" id="repos-container">
+            <!-- Repository cards will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Load the repos data
+        fetch('repos.json')
+            .then(response => response.json())
+            .then(data => {
+                // Process the data
+                const repos = data;
+                
+                // Update stats
+                document.getElementById('total-repos').textContent = repos.length;
+                document.getElementById('python-repos').textContent = repos.filter(r => 
+                    r.ai_decision.includes('Python') || r.ai_decision.includes('Flask')).length;
+                document.getElementById('portfolio-repos').textContent = repos.filter(r => 
+                    r.ai_decision.includes('Portfolio')).length;
+                document.getElementById('missing-desc-repos').textContent = repos.filter(r => 
+                    !r.description).length;
+                
+                // Categorize repos for chart
+                const categories = {
+                    'Python': repos.filter(r => r.ai_decision.includes('Python') || r.ai_decision.includes('Flask')).length,
+                    'Portfolio': repos.filter(r => r.ai_decision.includes('Portfolio')).length,
+                    'JavaScript': repos.filter(r => r.ai_decision.includes('JavaScript')).length,
+                    'Blog': repos.filter(r => r.ai_decision.includes('Blog')).length,
+                    'API': repos.filter(r => r.ai_decision.includes('API')).length,
+                    'Explore': repos.filter(r => r.ai_decision.includes('Explore')).length,
+                    'Missing Desc': repos.filter(r => !r.description).length
+                };
+                
+                // Create chart
+                const ctx = document.getElementById('categoryChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: Object.keys(categories),
+                        datasets: [{
+                            label: 'Repositories by Category',
+                            data: Object.values(categories),
+                            backgroundColor: [
+                                '#0366d6',
+                                '#d65306',
+                                '#d6a206',
+                                '#06d606',
+                                '#7d06d6',
+                                '#06a2d6',
+                                '#666'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    stepSize: 1
+                                }
+                            }
+                        }
+                    }
+                });
+                
+                // Render repo cards
+                function renderRepos(filter = 'all') {
+                    const container = document.getElementById('repos-container');
+                    container.innerHTML = '';
+                    
+                    const filteredRepos = repos.filter(repo => {
+                        if (filter === 'all') return true;
+                        if (filter === 'python') return repo.ai_decision.includes('Python') || repo.ai_decision.includes('Flask');
+                        if (filter === 'portfolio') return repo.ai_decision.includes('Portfolio');
+                        if (filter === 'javascript') return repo.ai_decision.includes('JavaScript');
+                        if (filter === 'blog') return repo.ai_decision.includes('Blog');
+                        if (filter === 'api') return repo.ai_decision.includes('API');
+                        if (filter === 'explore') return repo.ai_decision.includes('Explore');
+                        if (filter === 'missing') return !repo.description;
+                        return true;
+                    });
+                    
+                    filteredRepos.forEach(repo => {
+                        const card = document.createElement('div');
+                        card.className = 'repo-card';
+                        
+                        // Determine category for styling
+                        let categoryClass = '';
+                        if (repo.ai_decision.includes('Python') || repo.ai_decision.includes('Flask')) {
+                            categoryClass = 'category-python';
+                        } else if (repo.ai_decision.includes('Portfolio')) {
+                            categoryClass = 'category-portfolio';
+                        } else if (repo.ai_decision.includes('JavaScript')) {
+                            categoryClass = 'category-javascript';
+                        } else if (repo.ai_decision.includes('Blog')) {
+                            categoryClass = 'category-blog';
+                        } else if (repo.ai_decision.includes('API')) {
+                            categoryClass = 'category-api';
+                        } else if (repo.ai_decision.includes('Explore')) {
+                            categoryClass = 'category-explore';
+                        } else if (!repo.description) {
+                            categoryClass = 'category-missing';
+                        }
+                        
+                        card.innerHTML = `
+                            <h3><a href="${repo.url}" target="_blank">${repo.name}</a></h3>
+                            <div class="description">${repo.description || 'No description provided'}</div>
+                            <div class="ai-decision ${categoryClass}">${repo.ai_decision}</div>
+                        `;
+                        
+                        container.appendChild(card);
+                    });
+                }
+                
+                // Initial render
+                renderRepos();
+                
+                // Filter buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        // Remove active class from all buttons
+                        document.querySelectorAll('.filter-btn').forEach(b => {
+                            b.classList.remove('active-filter');
+                        });
+                        
+                        // Add active class to clicked button
+                        this.classList.add('active-filter');
+                        
+                        // Filter repos
+                        renderRepos(this.dataset.category);
+                    });
+                });
+            })
+            .catch(error => {
+                console.error('Error loading repos data:', error);
+                document.getElementById('repos-container').innerHTML = 
+                    '<div class="error">Error loading repository data. Please check the console for details.</div>';
+            });
+    </script>
+</body>
+</html>
