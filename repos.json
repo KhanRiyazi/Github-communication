@@ -1,0 +1,182 @@
+[
+  {
+    "name": "01_Python_Introduction",
+    "url": "https://github.com/KhanRiyazi/01_Python_Introduction",
+    "description": "Learn the basics of Python. These tutorials are for Python beginners. so even if you have no prior knowledge of Python, you won’t face any difficulty understanding these tutorials.",
+    "ai_decision": "🐍 Python Learning — wrap it into a CLI or Flask project"
+  },
+  {
+    "name": "03_Python_Flow_Control",
+    "url": "https://github.com/KhanRiyazi/03_Python_Flow_Control",
+    "description": "Flow control is the order in which statements or blocks of code are executed at runtime based on a condition.  Learn Conditional statements, Iterative statements, and Transfer statements",
+    "ai_decision": "🌱 Explore deeper — add features, improve code quality"
+  },
+  {
+    "name": "30-Days-Of-Python",
+    "url": "https://github.com/KhanRiyazi/30-Days-Of-Python",
+    "description": "30 days of Python programming challenge is a step-by-step guide to learn the Python programming language in 30 days. This challenge may take more than100 days, follow your own pace.  These videos may help too: https://www.youtube.com/channel/UC7PNRuno1rzYPb1xLa4yktw",
+    "ai_decision": "🐍 Python Learning — wrap it into a CLI or Flask project"
+  },
+  {
+    "name": "ABDELLAHdev01.github.io",
+    "url": "https://github.com/KhanRiyazi/ABDELLAHdev01.github.io",
+    "description": "This is the repo of my own portfolio feel free to take the source-code and use it ",
+    "ai_decision": "🧑‍💼 Portfolio Project — polish UI/UX and deploy it"
+  },
+  {
+    "name": "about-me",
+    "url": "https://github.com/KhanRiyazi/about-me",
+    "description": " A one-page personal portfolio website built using HTML, CSS, and JavaScript. It is a simple and clean design, with a focus on showcasing your existing social media following.",
+    "ai_decision": "🧑‍💼 Portfolio Project — polish UI/UX and deploy it"
+  },
+  {
+    "name": "about_lucknow",
+    "url": "https://github.com/KhanRiyazi/about_lucknow",
+    "description": null,
+    "ai_decision": "🕳️ Description missing — consider updating README"
+  },
+  {
+    "name": "Advertisement_algoritm",
+    "url": "https://github.com/KhanRiyazi/Advertisement_algoritm",
+    "description": null,
+    "ai_decision": "🕳️ Description missing — consider updating README"
+  },
+  {
+    "name": "Amazing-Python-Scripts",
+    "url": "https://github.com/KhanRiyazi/Amazing-Python-Scripts",
+    "description": "🚀 Curated collection of Amazing Python scripts from Basics to Advance with automation task scripts by Rizwan.",
+    "ai_decision": "🐍 Python Learning — wrap it into a CLI or Flask project"
+  },
+  {
+    "name": "API_learning",
+    "url": "https://github.com/KhanRiyazi/API_learning",
+    "description": "API learning roadmap with the best finishing of learning.",
+    "ai_decision": "🔗 API Learning — build a real API client using requests or Flask"
+  },
+  {
+    "name": "asmitbm.github.io",
+    "url": "https://github.com/KhanRiyazi/asmitbm.github.io",
+    "description": "Legacy: Personal portfolio Made using HTML, CSS, JavaScript and various JS libraries by Rizwan",
+    "ai_decision": "🧑‍💼 Portfolio Project — polish UI/UX and deploy it"
+  },
+  {
+    "name": "awesome-portfolio-websites",
+    "url": "https://github.com/KhanRiyazi/awesome-portfolio-websites",
+    "description": "A community maintained open source project aimed at making a personal portfolio for researchers, developers, and analysts simple, fast, and less cumbersome. We make sure you have a full-fledged website to showcase your work while you can spend time on your learning and innovative endeavors by Rizwan.",
+    "ai_decision": "🧑‍💼 Portfolio Project — polish UI/UX and deploy it"
+  },
+  {
+    "name": "bank-account",
+    "url": "https://github.com/KhanRiyazi/bank-account",
+    "description": "This JavaScript/JQuery app allows users to \"sign in\", enter an initial deposit amount, and deposit or withdraw from their account.   ",
+    "ai_decision": "📚 Focus: JavaScript — improve JS logic and UI effects"
+  },
+  {
+    "name": "BigB-E-learn-Websit-e",
+    "url": "https://github.com/KhanRiyazi/BigB-E-learn-Websit-e",
+    "description": "BigB is a E-learning website built using HTML, CSS, JavaScript and Bootstrap - Hacktoberfest Accepted.  🤞                                          This project is previously accepted in GSSoC 2022 , JWOC 22.",
+    "ai_decision": "📚 Focus: JavaScript — improve JS logic and UI effects"
+  },
+  {
+    "name": "blog-app-js",
+    "url": "https://github.com/KhanRiyazi/blog-app-js",
+    "description": "A simple blog using HTML, CSS and VanillaJS by Rizwan",
+    "ai_decision": "📝 Blogging Project — turn into static site with Jekyll or Flask"
+  },
+  {
+    "name": "Blog-Site",
+    "url": "https://github.com/KhanRiyazi/Blog-Site",
+    "description": "I made a simple blog site using html css js by Rizwan",
+    "ai_decision": "📝 Blogging Project — turn into static site with Jekyll or Flask"
+  },
+  {
+    "name": "bootstrap",
+    "url": "https://github.com/KhanRiyazi/bootstrap",
+    "description": "The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web.",
+    "ai_decision": "📚 Focus: JavaScript — improve JS logic and UI effects"
+  },
+  {
+    "name": "bootstrap-webdesign-landingpage",
+    "url": "https://github.com/KhanRiyazi/bootstrap-webdesign-landingpage",
+    "description": "Web Designer Portfolio landing-page designed using Bootstrap5 by Rizwan",
+    "ai_decision": "🧑‍💼 Portfolio Project — polish UI/UX and deploy it"
+  },
+  {
+    "name": "career_API",
+    "url": "https://github.com/KhanRiyazi/career_API",
+    "description": "Regret Minimization Framework Goal to earn 50,00000",
+    "ai_decision": "🌱 Explore deeper — add features, improve code quality"
+  },
+  {
+    "name": "CENTER",
+    "url": "https://github.com/KhanRiyazi/CENTER",
+    "description": null,
+    "ai_decision": "🕳️ Description missing — consider updating README"
+  },
+  {
+    "name": "Chairman-meet",
+    "url": "https://github.com/KhanRiyazi/Chairman-meet",
+    "description": null,
+    "ai_decision": "🕳️ Description missing — consider updating README"
+  },
+  {
+    "name": "chatgpt-clone",
+    "url": "https://github.com/KhanRiyazi/chatgpt-clone",
+    "description": "In this tutorial, you will learn how to build a ChatGPT clone application using React and the OpenAI API. By Rizwan Ali",
+    "ai_decision": "🔗 API Learning — build a real API client using requests or Flask"
+  },
+  {
+    "name": "Client-side",
+    "url": "https://github.com/KhanRiyazi/Client-side",
+    "description": "client side work",
+    "ai_decision": "🌱 Explore deeper — add features, improve code quality"
+  },
+  {
+    "name": "code_courses",
+    "url": "https://github.com/KhanRiyazi/code_courses",
+    "description": "Code_Courses is an open-source online judge",
+    "ai_decision": "🌱 Explore deeper — add features, improve code quality"
+  },
+  {
+    "name": "Company_website_templete",
+    "url": "https://github.com/KhanRiyazi/Company_website_templete",
+    "description": "Basic company website template designed  using HTML, CSS, JS and Bootstrap by Rizwan",
+    "ai_decision": "🌱 Explore deeper — add features, improve code quality"
+  },
+  {
+    "name": "complete-javascript-course",
+    "url": "https://github.com/KhanRiyazi/complete-javascript-course",
+    "description": "My Journey to learn javascript very well",
+    "ai_decision": "📚 Focus: JavaScript — improve JS logic and UI effects"
+  },
+  {
+    "name": "COMPLETE-PORTFOLIO-WEBSITE",
+    "url": "https://github.com/KhanRiyazi/COMPLETE-PORTFOLIO-WEBSITE",
+    "description": "COMPLETE PORTFOLIO WEBSITE < HTML > { CSS } ( JavaScript ) by Rizwan",
+    "ai_decision": "🧑‍💼 Portfolio Project — polish UI/UX and deploy it"
+  },
+  {
+    "name": "Complete_HTML_CSS_Blog_Website",
+    "url": "https://github.com/KhanRiyazi/Complete_HTML_CSS_Blog_Website",
+    "description": "In this tutorial We are going to learn how to create a complete HTML and CSS Blog and make it responsive.",
+    "ai_decision": "📝 Blogging Project — turn into static site with Jekyll or Flask"
+  },
+  {
+    "name": "Country-finder",
+    "url": "https://github.com/KhanRiyazi/Country-finder",
+    "description": "My repository to find the country by my site",
+    "ai_decision": "🌱 Explore deeper — add features, improve code quality"
+  },
+  {
+    "name": "css_course",
+    "url": "https://github.com/KhanRiyazi/css_course",
+    "description": "My Journey Rizwan Ali",
+    "ai_decision": "🌱 Explore deeper — add features, improve code quality"
+  },
+  {
+    "name": "Curriculum-Development",
+    "url": "https://github.com/KhanRiyazi/Curriculum-Development",
+    "description": "I am trying to learn web development through Github repo",
+    "ai_decision": "🌱 Explore deeper — add features, improve code quality"
+  }
+]
